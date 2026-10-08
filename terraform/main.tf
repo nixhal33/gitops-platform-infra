@@ -10,7 +10,7 @@ terraform {
 }
 
 provider "aws" {
-  region = var.aws_region            # value comes from variables.tf
+  region = var.aws_region # value comes from variables.tf
 }
 
 # Reads your account ID at runtime 
@@ -24,7 +24,7 @@ locals {
 
 resource "aws_s3_bucket" "state" {
   bucket        = local.bucket_name
-  force_destroy = false               # refuse to delete if state files exist
+  force_destroy = false # refuse to delete if state files exist
 }
 
 # Keep old versions of the state file for rollback.

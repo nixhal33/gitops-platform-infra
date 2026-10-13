@@ -24,7 +24,7 @@ locals {
 
 resource "aws_s3_bucket" "state" {
   bucket        = local.bucket_name
-  force_destroy = false # refuse to delete if state files exist
+  force_destroy = true # refuse to delete if "false" is set if the file exists in the bucket and if state is set as "true" then it will delete the bucket even if it has files in it. Use with caution.
 }
 
 # Keep old versions of the state file for rollback.

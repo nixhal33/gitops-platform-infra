@@ -12,3 +12,16 @@ module "networking" {
 output "vpc_id" {
   value = module.networking.vpc_id
 }
+
+module "security" {
+  source = "../../modules/security"
+
+  project_name = "gitops-platform"
+  environment  = "staging"
+  vpc_id       = module.networking.vpc_id
+  admin_cidr   = var.admin_cidr
+}
+
+output "security_group_id" {
+  value = module.security.security_group_id
+}

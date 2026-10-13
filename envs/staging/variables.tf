@@ -10,3 +10,7 @@ variable "aws_region" {
   default     = "us-east-1"
 }
 
+variable "admin_cidr" {
+  description = "Your public IP in CIDR form, allowed to reach admin ports"
+  type        = string
+}
